@@ -32,11 +32,21 @@ public class Store {
         addToInventory(drink);
     }
 
+    public void addToInventory(String name, int price, String id, String description, int volume, int volumeUnit) {
+        Drink drink = new Drink(name, price, id, description, volume, volumeUnit);
+        addToInventory(drink);
+    }
+
 
  //TODO :Fruit version
 
     public void addToInventory(String name, int price, String id, String description, int hardness, boolean isOrganic) {
         Fruit fruit = new Fruit(name, price, id,  description, hardness, isOrganic);
+        addToInventory(fruit);
+    }
+
+    public void addToInventory(String name, int price, String id, String description, int hardness) {
+        Fruit fruit = new Fruit(name, price, id,  description, hardness);
         addToInventory(fruit);
     }
 
