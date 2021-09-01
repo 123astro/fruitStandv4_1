@@ -1,4 +1,4 @@
-package com.GroceryStore.Products;
+package com.GroceryStore.products;
 
 public class Fruit extends Product {
     private boolean isOrganic;

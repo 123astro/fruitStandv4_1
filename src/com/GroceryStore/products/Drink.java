@@ -1,7 +1,7 @@
-package com.GroceryStore.Products;
+package com.GroceryStore.products;
 
 public class Drink extends Product {
-    private final static String[] UNITS = new String[]{"Gal", "oz", "liters", "ml", "pint", "qt"};
+    public final static String[] UNITS = new String[]{"Gal", "oz", "liters", "ml", "pint", "qt"};
     private int volume;
     private String volumeUnit;
 
