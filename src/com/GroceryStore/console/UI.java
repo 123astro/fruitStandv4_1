@@ -4,20 +4,26 @@ import com.GroceryStore.Store;
 import com.GroceryStore.products.Drink;
 import com.GroceryStore.products.Fruit;
 import com.GroceryStore.products.Product;
+
 import java.util.Scanner;
 
-//TODO make the ui system loop until it exits
 
 public class UI {
     private Store store;
     private static Scanner scanner = new Scanner(System.in);
 
+    public UI(Store store) {  //CONSTRUCTOR
+        this.store = store;
+    }
+
+
+
     private final static String[] MENU = new String[]{
-            "1. add product to inventory",
-            "2. throw away product to inventory",
+            "1. Add product to inventory",
+            "2. Throw away product to inventory",
             "3. List products ",
-            "4. sell product",
-            "5. quit"
+            "4. Sell product",
+            "5. Quit"
     };
 
 
@@ -26,10 +32,6 @@ public class UI {
             "2. Fruit"
     };
 
-    public static void welcome(String name) {
-        System.out.println("Welcome to " + name + " !");
-    }
-
     public static void displayOptions(String prompt, String[] options) { // prompt is the first line to print ( to do)
         System.out.println(prompt);
         for (String option : options) {
@@ -37,13 +39,17 @@ public class UI {
         }
     }
 
-    public void start(Store store) {
-        this.store = store;
-        //System.out.println(MENU);
+    public static void welcome(String name) {
+        System.out.println("Welcome to " + name + " !");
+    }
+
+
+    public boolean start() { //
+        //System.out.println(Arrays.toString(MENU));
         welcome(store.getName());
         displayOptions("What do you want to do?", MENU);
         int choice = getInt(1, 5, "Enter selection between 1 and 5: ");
-        handleMenuSelection(choice);
+        return handleMenuSelection(choice);
     }
 
     public static int getInt(int min, int max, String prompt) {
@@ -78,15 +84,18 @@ public class UI {
         return input;
     }
 
-    public void handleMenuSelection(int choice) {
+    public boolean handleMenuSelection(int choice) {
         switch (choice) {
             case 1 -> addProduct();
             case 2 -> throwAwayProduct();
             case 3 -> displayProduct();
             case 4 -> sellProduct();
-            case 5 -> System.exit(0);
+            case 5 -> {
+                return false;
+            }
             default -> System.out.println("Invalid num received");
         }
+        return true;
     }
 
     private void addProduct() {
