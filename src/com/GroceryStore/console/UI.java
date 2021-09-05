@@ -30,11 +30,23 @@ public class UI {
             "2. Fruit"
     };
 
-    private final static String WELCOME = "Welcome to";
+    private final static String WELCOME = "Welcome to ";
     private final static String MENUPROMPT = "What do you want to do?";
-    private final static String SELECT_PROMPT = " Enter selection";
+    private final static String SELECT_PROMPT = " Enter Selection";
     private final static String PRODUCT_PROMPT = "Enter Product";
-    private final static String[] ERROR_MSGS = new String [] {"OK", "Invalid number", "General error"};
+    private final static String CANCEL_PROMPT = "PLEASE ENTER TO CANCEL";
+    private final static String[] ERROR_MSGS = new String [] {"OK", "Invalid number", "General error",
+            "Must enter something", "not found"};
+    private final static String[] PRODUCT_FIELDS = new String [] {
+            "Name", "Price", "ID", "Description"
+    };
+    private final static String[] DRINK_FIELDS = new String[] {
+           "Volume", "Volume unit code"
+    };
+
+    private final static String[] FRUIT_FIELDS = new String[] {
+            "", "", "Description"
+    };
 
     public static void displayOptions(String prompt, String[] options) { // prompt is the first line to print ( to do)
         System.out.println(prompt);
