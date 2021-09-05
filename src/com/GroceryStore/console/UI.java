@@ -16,8 +16,6 @@ public class UI {
         this.store = store;
     }
 
-
-
     private final static String[] MENU = new String[]{
             "1. Add product to inventory",
             "2. Throw away product to inventory",
@@ -32,6 +30,12 @@ public class UI {
             "2. Fruit"
     };
 
+    private final static String WELCOME = "Welcome to";
+    private final static String MENUPROMPT = "What do you want to do?";
+    private final static String SELECT_PROMPT = " Enter selection";
+    private final static String PRODUCT_PROMPT = "Enter Product";
+    private final static String[] ERROR_MSGS = new String [] {"OK", "Invalid number", "General error"};
+
     public static void displayOptions(String prompt, String[] options) { // prompt is the first line to print ( to do)
         System.out.println(prompt);
         for (String option : options) {
@@ -40,15 +44,14 @@ public class UI {
     }
 
     public static void welcome(String name) {
-        System.out.println("Welcome to " + name + " !");
+        System.out.println(WELCOME + name + " !");
     }
 
 
     public boolean start() { //
-        //System.out.println(Arrays.toString(MENU));
         welcome(store.getName());
-        displayOptions("What do you want to do?", MENU);
-        int choice = getInt(1, 5, "Enter selection between 1 and 5: ");
+        displayOptions(MENUPROMPT, MENU);
+        int choice = getInt(1, 5, SELECT_PROMPT);
         return handleMenuSelection(choice);
     }
 
@@ -99,8 +102,8 @@ public class UI {
     }
 
     private void addProduct() {
-        displayOptions("What kind of products?", PRODUCT_TYPES);
-        int choice = getInt(1, PRODUCT_TYPES.length, "enter a number");
+        displayOptions(MENUPROMPT, PRODUCT_TYPES);
+        int choice = getInt(1, PRODUCT_TYPES.length, SELECT_PROMPT);
         Product newProduct;
         switch (choice) {
             case 1 -> newProduct = getDrinkDetails();
