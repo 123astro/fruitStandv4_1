@@ -13,6 +13,11 @@ public class Store {
     private List<Product> inventory = new ArrayList<>();
     private int balance = 50000;  //set your default value here.
     private String name;
+   // public UserInterface UI;
+//
+//    private void setLanguage(){
+//        int choise
+//    }
 
     public Store(String name) {
         this.name = name;
